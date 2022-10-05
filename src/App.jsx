@@ -3,7 +3,7 @@ import api from './api'
 import { useEffect } from 'react'
 import { Player } from 'video-react'
 import moment from 'moment'
-import './App.css'
+import './video.css'
 
 
 function App() {

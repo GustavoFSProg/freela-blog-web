@@ -5,7 +5,6 @@ import { Player } from 'video-react'
 import moment from 'moment'
 import './video.css'
 
-
 function App() {
   const [posts, setPosts] = useState([])
 
@@ -35,7 +34,6 @@ function App() {
         alignItems: 'center',
       }}
     >
-
       {posts.map((item) => {
         return (
           <div
@@ -64,28 +62,33 @@ function App() {
       })}
       <br />
 
-      <div >
+      <div>
         <form style={{ display: 'flex', flexDirection: 'column' }}>
-          Nome: <input type="text" style={{
-            marginBottom: '20px',
-            borderRadius: '5px', height: '24px'
-          }} />
-          Comentário: <textarea style={{
-            marginBottom: '20px',
-            borderRadius: '5px',
-          }} cols="35" rows="15">
-
-          </textarea>
-
+          Nome:{' '}
+          <input
+            type="text"
+            style={{
+              marginBottom: '20px',
+              borderRadius: '5px',
+              height: '24px',
+            }}
+          />
+          Comentário:{' '}
+          <textarea
+            style={{
+              marginBottom: '20px',
+              borderRadius: '5px',
+            }}
+            cols="35"
+            rows="15"
+          ></textarea>
           <button type="submit" style={{ background: 'lihgtgray' }}>
             Enviar
           </button>
-
         </form>
         <br />
         <br />
         <br />
-
       </div>
     </div>
   )

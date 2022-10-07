@@ -49,7 +49,7 @@ function App() {
               <Player>
                 {/* <source src={`https://freela-api-blog.herokuapp.com/files/${item.image}`} /> */}
 
-                <source src={`http://localhost:5000/files/${item.image}`} />
+                {/* <source src={`http://localhost:5000/files/${item.image}`} /> */}
               </Player>
             </div>
 

@@ -35,6 +35,7 @@ function App() {
         alignItems: 'center',
       }}
     >
+
       {posts.map((item) => {
         return (
           <div
@@ -47,7 +48,7 @@ function App() {
               <Player>
                 {/* <source src={`https://freela-api-blog.herokuapp.com/files/${item.image}`} /> */}
 
-                {/* <source src={`http://localhost:5000/files/${item.image}`} /> */}
+                <source src={`http://localhost:5000/files/${item.image}`} />
               </Player>
             </div>
 
@@ -61,6 +62,31 @@ function App() {
           </div>
         )
       })}
+      <br />
+
+      <div >
+        <form style={{ display: 'flex', flexDirection: 'column' }}>
+          Nome: <input type="text" style={{
+            marginBottom: '20px',
+            borderRadius: '5px', height: '24px'
+          }} />
+          Comentário: <textarea style={{
+            marginBottom: '20px',
+            borderRadius: '5px',
+          }} cols="35" rows="15">
+
+          </textarea>
+
+          <button type="submit" style={{ background: 'lihgtgray' }}>
+            Enviar
+          </button>
+
+        </form>
+        <br />
+        <br />
+        <br />
+
+      </div>
     </div>
   )
 }

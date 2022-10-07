@@ -7,6 +7,7 @@ import './video.css'
 
 function App() {
   const [posts, setPosts] = useState([])
+  const [comments, setComments] = useState([])
 
   function getDateWithoutTime(date) {
     return moment(date).format('DD-MM-YYYY')
@@ -19,10 +20,18 @@ function App() {
     return data
   }
 
+  async function getComments() {
+    const { data } = await api.get('/get-comments')
+
+    setComments(data)
+    return data
+  }
+
   console.log(posts)
 
   useEffect(() => {
     getPosts()
+    getComments()
   }, [])
 
   return (
@@ -65,7 +74,21 @@ function App() {
       })}
       <br />
 
-      <div>
+      <div style={{ width: '38%' }}>
+        <h2 style={{ marginLeft: '-20px' }}>Comentários:</h2>
+        {comments.map((data) => {
+          return (
+            <div key={data.id}>
+              <p>
+                Nome:<strong>{data.user_name}</strong>
+              </p>
+              <p>{data.comments}</p>
+            </div>
+          )
+        })}
+        <br />
+        <br />
+
         <form style={{ display: 'flex', flexDirection: 'column' }}>
           Nome:{' '}
           <input
@@ -89,7 +112,6 @@ function App() {
             Enviar
           </button>
         </form>
-
       </div>
       <br />
       <br />

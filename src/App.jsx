@@ -34,6 +34,9 @@ function App() {
         alignItems: 'center',
       }}
     >
+      <br />
+      <br />
+      <br />
       {posts.map((item) => {
         return (
           <div

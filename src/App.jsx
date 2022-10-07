@@ -142,7 +142,11 @@ function App() {
             id="comm"
             onChange={(e) => setComm(e.target.value)}
           ></textarea>
-          <button type="submit" style={{ background: '#d9d9d9' }}>
+          {/* <button type="submit" style={{ background: '#d9d9d9' }}>
+            Enviar
+          </button> */}
+
+          <button type="text" style={{ background: '#d9d9d9' }}>
             Enviar
           </button>
         </form>

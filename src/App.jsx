@@ -85,7 +85,7 @@ function App() {
             cols="35"
             rows="15"
           ></textarea>
-          <button type="submit" style={{ background: 'lihgtgray' }}>
+          <button type="submit" style={{ background: 'gray' }}>
             Enviar
           </button>
         </form>

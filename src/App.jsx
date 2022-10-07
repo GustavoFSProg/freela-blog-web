@@ -8,6 +8,9 @@ import './video.css'
 function App() {
   const [posts, setPosts] = useState([])
   const [comments, setComments] = useState([])
+  const [name, setName] = useState('')
+  const [comm, setComm] = useState('')
+  const id = localStorage.getItem('ID')
 
   function getDateWithoutTime(date) {
     return moment(date).format('DD-MM-YYYY')
@@ -24,6 +27,28 @@ function App() {
     const { data } = await api.get('/get-comments')
 
     setComments(data)
+    return data
+  }
+
+  async function handleComments(e) {
+    e.preventDefault()
+    try {
+      const data = { user_name: name, comments: comm }
+
+      console.log(id)
+
+      await api.post(`/register-coments/${id}`, data)
+      alert('Comentario com Sucesso!')
+
+      getPosts()
+      getComments()
+
+
+      return data
+    } catch (error) {
+      alert('ERROR!', error)
+    }
+
     return data
   }
 
@@ -47,6 +72,9 @@ function App() {
       <br />
       <br />
       {posts.map((item) => {
+        {
+          localStorage.setItem('ID', item.id)
+        }
         return (
           <div
             key={item.id}
@@ -89,7 +117,7 @@ function App() {
         <br />
         <br />
 
-        <form style={{ display: 'flex', flexDirection: 'column' }}>
+        <form onSubmit={handleComments} style={{ display: 'flex', flexDirection: 'column' }}>
           Nome:{' '}
           <input
             type="text"
@@ -98,6 +126,9 @@ function App() {
               borderRadius: '5px',
               height: '24px',
             }}
+            name="name"
+            id="name"
+            onChange={(e) => setName(e.target.value)}
           />
           Comentário:{' '}
           <textarea
@@ -107,6 +138,9 @@ function App() {
             }}
             cols="35"
             rows="15"
+            name="comm"
+            id="comm"
+            onChange={(e) => setComm(e.target.value)}
           ></textarea>
           <button type="submit" style={{ background: '#d9d9d9' }}>
             Enviar

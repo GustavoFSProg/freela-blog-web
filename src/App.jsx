@@ -89,10 +89,11 @@ function App() {
             Enviar
           </button>
         </form>
-        <br />
-        <br />
-        <br />
+
       </div>
+      <br />
+      <br />
+      <br />
     </div>
   )
 }

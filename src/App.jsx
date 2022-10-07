@@ -146,7 +146,7 @@ function App() {
             Enviar
           </button> */}
 
-          <button type="text" style={{ background: '#d9d9d9' }}>
+          <button type="text" disabled={true} style={{ background: '#d9d9d9' }}>
             Enviar
           </button>
         </form>

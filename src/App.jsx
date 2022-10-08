@@ -86,7 +86,7 @@ function App() {
           >
             <div style={{ width: '35%' }}>
               <Player>
-                {/* <source src={`https://freela-api-blog.herokuapp.com/files/${item.image}`} /> */}
+                <source src={`https://freela-api-blog.herokuapp.com/files/${item.image}`} />
 
                 {/* <source src={`http://localhost:5000/files/${item.image}`} /> */}
               </Player>

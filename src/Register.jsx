@@ -1,167 +1,120 @@
 import { useState } from 'react'
 import api from './api'
-import { useEffect } from 'react'
-import { Player } from 'video-react'
-import moment from 'moment'
 import Header from './components/header/Header'
 
 import './video.css'
 
-function Regsiter() {
-  const [posts, setPosts] = useState([])
-  const [comments, setComments] = useState([])
-  const [name, setName] = useState('')
-  const [comm, setComm] = useState('')
-  const id = localStorage.getItem('ID')
+function Register() {
+  const [title, setTitle] = useState('')
+  const [text, setText] = useState('')
+  const [autor, setAutor] = useState('')
+  const [image, setImage] = useState([])
 
-  function getDateWithoutTime(date) {
-    return moment(date).format('DD-MM-YYYY')
-  }
 
-  async function getPosts() {
-    const { data } = await api.get('/all')
-
-    setPosts(data)
-    return data
-  }
-
-  async function getComments() {
-    const { data } = await api.get('/get-comments')
-
-    setComments(data)
-    return data
-  }
-
-  async function handleComments(e) {
+  async function registerVideo(e) {
     e.preventDefault()
     try {
-      const data = { user_name: name, comments: comm }
 
-      console.log(id)
+      const data = new FormData()
 
-      await api.post(`/register-coments/${id}`, data)
-      alert('Comentario com Sucesso!')
 
-      getPosts()
-      getComments()
+      data.append('title', title)
+      data.append('text', text)
+      data.append('autor', autor)
+      data.append('image', image)
 
-      return data
+
+      await api.post('/register', data)
+
+      return alert('Cadastro realizado com sucesso!')
     } catch (error) {
-      alert('ERROR!', error)
+      console.log(error)
+      return alert(`Deu erro no front ${error}`)
     }
-
-    return data
   }
 
-  console.log(posts)
 
-  useEffect(() => {
-    getPosts()
-    getComments()
-  }, [])
-
-  return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        width: '100vw',
-        top: '0',
-      }}
-    >
-      <Header />
-      <br />
-      <br />
-      <br />
-      {posts.map((item) => {
-        {
-          localStorage.setItem('ID', item.id)
-        }
-        return (
-          <div
-            key={item.id}
-            style={{
-              width: '50%',
-            }}
-          >
-            <h2>CADASTRO DE POST INSTITUCIONAL</h2>
-            <br />
-            <div style={{ width: '35%' }}>
-              {/* <Player> */}
-              {/* <source src={`https://freela-api-blog.herokuapp.com/files/${item.image}`} /> */}
-
-              {/* <source src={`http://localhost:5000/files/${item.image}`} /> */}
-              {/* </Player> */}
-            </div>
-
-            <p>
-              <h2>{item.title}</h2>
-            </p>
-
-            <p>{item.text}</p>
-
-            <p>Data: {getDateWithoutTime(item.createdAt)}</p>
-          </div>
-        )
-      })}
-      <br />
-
-      <div style={{ width: '38%' }}>
-        <h2 style={{ marginLeft: '-20px' }}>Comentários:</h2>
-        {comments.map((data) => {
-          return (
-            <div key={data.id}>
-              <p>
-                Nome:<strong>{data.user_name}</strong>
-              </p>
-              <p>{data.comments}</p>
-            </div>
-          )
-        })}
+    return (
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+          width: '100vw',
+        }}
+      >
+        <Header />
+        <br />
         <br />
         <br />
 
-        <form onSubmit={handleComments} style={{ display: 'flex', flexDirection: 'column' }}>
-          Nome:{' '}
-          <input
-            type="text"
-            style={{
-              marginBottom: '20px',
-              borderRadius: '5px',
-              height: '24px',
-            }}
-            name="name"
-            id="name"
-            onChange={(e) => setName(e.target.value)}
-          />
-          Comentário:{' '}
-          <textarea
-            style={{
-              marginBottom: '20px',
-              borderRadius: '5px',
-            }}
-            cols="35"
-            rows="15"
-            name="comm"
-            id="comm"
-            onChange={(e) => setComm(e.target.value)}
-          ></textarea>
-          {/* <button type="submit" style={{ background: '#d9d9d9' }}>
-            Enviar
-          </button> */}
+        <h2>CADASTRO DE POST INSTITUCIONAL</h2>
+        <br />
 
-          {/* <button type="text" disabled={true} style={{ background: '#d9d9d9' }}>
-            Enviar
-          </button> */}
-        </form>
+        <div style={{ width: '38%' }}>
+          <form onSubmit={registerVideo} style={{ display: 'flex', flexDirection: 'column' }}>
+            Video:
+            <input
+              type="file"
+              style={{
+                marginBottom: '20px',
+                borderRadius: '5px',
+                height: '24px',
+              }}
+              name="image"
+              id="image"
+              onChange={(e) => setImage(e.target.files[0])}
+            />
+            Autor:
+            <input
+              type="text"
+              style={{
+                marginBottom: '20px',
+                borderRadius: '5px',
+                height: '24px',
+              }}
+              name="autor"
+              id="autor"
+              value={autor}
+
+              onChange={(e) => setAutor(e.target.value)}
+            />
+            Titulo:
+            <input
+              type="text"
+              style={{
+                marginBottom: '20px',
+                borderRadius: '5px',
+                height: '24px',
+              }}
+              name="title"
+              id="title"
+              value={title}
+
+              onChange={(e) => setTitle(e.target.value)}
+            />
+            Texto:
+            <textarea
+              style={{
+                marginBottom: '20px',
+                borderRadius: '5px',
+              }}
+              cols="35"
+              rows="15"
+              name="text"
+              id="text"
+              value={text}
+
+              onChange={(e) => setText(e.target.value)}
+            ></textarea>
+            <button type="submit" style={{ background: '#d9d9d9', height: '40px' }}>
+              Cadastrar
+            </button>
+          </form>
+        </div>
       </div>
-      <br />
-      <br />
-      <br />
-    </div>
-  )
+    )
 }
 
-export default Regsiter
+export default Register

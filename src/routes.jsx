@@ -5,11 +5,11 @@ import Register from './Register'
 
 function Routing() {
   return (
-   
+
     <BrowserRouter >
       <Routes >
-        <Route path="/" element={<App />} />
-      <Route path="/register" element={<Register />} />
+        <Route path="/" exact element={<App />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
     </BrowserRouter>
   )

@@ -4,9 +4,10 @@ import { useEffect } from 'react'
 import { Player } from 'video-react'
 import moment from 'moment'
 import Header from './components/header/Header'
+
 import './video.css'
 
-function App() {
+function Regsiter() {
   const [posts, setPosts] = useState([])
   const [comments, setComments] = useState([])
   const [name, setName] = useState('')
@@ -44,7 +45,6 @@ function App() {
       getPosts()
       getComments()
 
-
       return data
     } catch (error) {
       alert('ERROR!', error)
@@ -67,6 +67,8 @@ function App() {
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
+        width: '100vw',
+        top: '0',
       }}
     >
       <Header />
@@ -84,12 +86,14 @@ function App() {
               width: '50%',
             }}
           >
+            <h2>CADASTRO DE POST INSTITUCIONAL</h2>
+            <br />
             <div style={{ width: '35%' }}>
-              <Player>
-                {/* <source src={`https://freela-api-blog.herokuapp.com/files/${item.image}`} /> */}
+              {/* <Player> */}
+              {/* <source src={`https://freela-api-blog.herokuapp.com/files/${item.image}`} /> */}
 
-                {/* <source src={`http://localhost:5000/files/${item.image}`} /> */}
-              </Player>
+              {/* <source src={`http://localhost:5000/files/${item.image}`} /> */}
+              {/* </Player> */}
             </div>
 
             <p>
@@ -160,4 +164,4 @@ function App() {
   )
 }
 
-export default App
+export default Regsiter

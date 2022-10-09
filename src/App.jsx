@@ -98,7 +98,16 @@ function App() {
 
             <p>{item.text}</p>
 
-            <p>Data: {getDateWithoutTime(item.createdAt)}</p>
+            <p>Data: {getDateWithoutTime(item.createdAt)}
+              <button onClick={() => alert("You Click in Editar!!")} style={{
+                marginLeft: '380px',
+                background: '#d9d9d9', height: '27px'
+              }}>
+                Editar
+              </button>
+            </p>
+
+
           </div>
         )
       })}

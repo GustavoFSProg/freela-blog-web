@@ -5,6 +5,7 @@ import { Player } from 'video-react'
 import moment from 'moment'
 import Header from './components/header/Header'
 import './video.css'
+import { useNavigate } from 'react-router-dom'
 
 function App() {
   const [posts, setPosts] = useState([])
@@ -12,6 +13,9 @@ function App() {
   const [name, setName] = useState('')
   const [comm, setComm] = useState('')
   const id = localStorage.getItem('ID')
+
+  const navigate = useNavigate()
+
 
   function getDateWithoutTime(date) {
     return moment(date).format('DD-MM-YYYY')
@@ -51,6 +55,11 @@ function App() {
     }
 
     return data
+  }
+
+  function LocalSetId(postId) {
+
+    navigate("/update")
   }
 
   console.log(posts)
@@ -99,7 +108,7 @@ function App() {
             <p>{item.text}</p>
 
             <p>Data: {getDateWithoutTime(item.createdAt)}
-              <button onClick={() => alert("You Click in Editar!!")} style={{
+              <button disabled={false} onClick={() => LocalSetId(item.id)} style={{
                 marginLeft: '380px',
                 background: '#d9d9d9', height: '27px'
               }}>

@@ -105,9 +105,9 @@ function Register() {
             value={text}
             onChange={(e) => setText(e.target.value)}
           ></textarea>
-          {/* <button type="submit" style={{ background: '#d9d9d9', height: '40px' }}>
+          <button disabled={true} type="submit" style={{ background: '#d9d9d9', height: '40px' }}>
             Cadastrar
-          </button> */}
+          </button> 
         </form>
       </div>
     </div>

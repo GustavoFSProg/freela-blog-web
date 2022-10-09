@@ -144,9 +144,9 @@ function App() {
             id="comm"
             onChange={(e) => setComm(e.target.value)}
           ></textarea>
-          {/* <button type="submit" style={{ background: '#d9d9d9', height: '40px' }}>
+          <button disabled={true} type="submit" style={{ background: '#d9d9d9', height: '40px' }}>
             Enviar
-          </button> */}
+          </button> 
 
           {/* <button type="text" disabled={true} style={{ background: '#d9d9d9' }}>
             Enviar

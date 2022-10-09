@@ -39,7 +39,7 @@ function App() {
       console.log(id)
 
       await api.post(`/register-coments/${id}`, data)
-      alert('Comentario com Sucesso!')
+      alert('Comentario enviado com Sucesso!')
 
       getPosts()
       getComments()
@@ -108,9 +108,9 @@ function App() {
         <h2 style={{ marginLeft: '-20px' }}>Comentários:</h2>
         {comments.map((data) => {
           return (
-            <div key={data.id}>
+            <div key={data.id} style={{ marginBottom: '38px' }}>
               <p>
-                Nome:<strong>{data.user_name}</strong>
+                Nome: <strong style={{ marginLeft: '4px' }}>{data.user_name}</strong>
               </p>
               <p>{data.comments}</p>
             </div>
@@ -144,7 +144,7 @@ function App() {
             id="comm"
             onChange={(e) => setComm(e.target.value)}
           ></textarea>
-          {/* <button type="submit" style={{ background: '#d9d9d9' }}>
+          {/* <button type="submit" style={{ background: '#d9d9d9', height: '40px' }}>
             Enviar
           </button> */}
 

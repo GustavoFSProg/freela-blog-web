@@ -25,11 +25,11 @@ function Update() {
       data.append('autor', autor)
       data.append('image', image)
 
-      await api.post('/register', data)
+      await api.put(`/update/${idItem}`, data)
 
       navigate('/')
 
-      return alert('Cadastro realizado com sucesso!')
+      return alert('Cadastro Editado com sucesso!')
     } catch (error) {
       console.log(error)
       return alert(`Deu erro no front ${error}`)

@@ -108,7 +108,7 @@ function App() {
             <p>{item.text}</p>
 
             <p>Data: {getDateWithoutTime(item.createdAt)}
-              <button disabled={false} onClick={() => LocalSetId(item.id)} style={{
+              <button disabled={true} onClick={() => LocalSetId(item.id)} style={{
                 marginLeft: '380px',
                 background: '#d9d9d9', height: '27px'
               }}>

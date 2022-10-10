@@ -6,6 +6,7 @@ import moment from 'moment'
 import Header from './components/header/Header'
 import './video.css'
 import { useNavigate } from 'react-router-dom'
+import { ContainerApp, ContainerComents, ContainerForm } from './styled-app'
 
 function App() {
   const [posts, setPosts] = useState([])
@@ -70,13 +71,8 @@ function App() {
   }, [])
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}
+    <ContainerApp
+
     >
       <Header />
       <br />
@@ -122,7 +118,7 @@ function App() {
       })}
       <br />
 
-      <div style={{ width: '38%' }}>
+      <ContainerComents style={{ width: '38%' }}>
         <h2 style={{ marginLeft: '-20px' }}>Comentários:</h2>
         {comments.map((data) => {
           return (
@@ -137,7 +133,7 @@ function App() {
         <br />
         <br />
 
-        <form onSubmit={handleComments} style={{ display: 'flex', flexDirection: 'column' }}>
+        <ContainerForm onSubmit={handleComments} >
           Nome:{' '}
           <input
             type="text"
@@ -169,12 +165,12 @@ function App() {
           {/* <button type="text" disabled={true} style={{ background: '#d9d9d9' }}>
             Enviar
           </button> */}
-        </form>
-      </div>
+        </ContainerForm>
+      </ContainerComents>
       <br />
       <br />
       <br />
-    </div>
+    </ContainerApp>
   )
 }
 

@@ -105,7 +105,7 @@ function Register() {
             value={text}
             onChange={(e) => setText(e.target.value)}
           ></textarea>
-          <button disabled={false} type="submit" style={{
+          <button disabled={true} type="submit" style={{
 
             background: '#d9d9d9', height: 'auto',
             borderRadius: '8px',

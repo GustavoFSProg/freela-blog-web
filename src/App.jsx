@@ -167,7 +167,7 @@ function App() {
             onChange={(e) => setComm(e.target.value)}
           ></textarea>
           <button
-            disabled={false}
+            disabled={true}
             type="submit"
             style={{
               background: '#d9d9d9',

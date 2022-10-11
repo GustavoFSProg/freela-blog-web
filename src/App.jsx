@@ -17,7 +17,6 @@ function App() {
 
   const navigate = useNavigate()
 
-
   function getDateWithoutTime(date) {
     return moment(date).format('DD-MM-YYYY')
   }
@@ -49,7 +48,6 @@ function App() {
       getPosts()
       getComments()
 
-
       return data
     } catch (error) {
       alert('ERROR!', error)
@@ -59,8 +57,7 @@ function App() {
   }
 
   function LocalSetId(postId) {
-
-    navigate("/update")
+    navigate('/update')
   }
 
   console.log(posts)
@@ -71,9 +68,7 @@ function App() {
   }, [])
 
   return (
-    <ContainerApp
-
-    >
+    <ContainerApp>
       <Header />
       <br />
       <br />
@@ -103,16 +98,29 @@ function App() {
 
             <p>{item.text}</p>
 
-            <p>Data: {getDateWithoutTime(item.createdAt)}
-              <button disabled={true} onClick={() => LocalSetId(item.id)} style={{
-                marginLeft: '380px',
-                background: '#d9d9d9', height: '27px'
-              }}>
+            <p>
+              Data: {getDateWithoutTime(item.createdAt)}
+              <button
+                disabled={false}
+                onClick={() => LocalSetId(item.id)}
+                style={{
+                  marginLeft: '380px',
+                  background: '#d9d9d9',
+                  height: 'auto',
+                  borderRadius: '6px',
+                  paddingTop: '5px',
+                  paddingLeft: '8px',
+                  paddingRight: '8px',
+                  paddingBottom: '5px',
+                  fontSize: '12px',
+                  fontFamily: 'Arial',
+                  fontWeight: 'bolder',
+                  color: '#334d4d'
+                }}
+              >
                 Editar
               </button>
             </p>
-
-
           </div>
         )
       })}
@@ -133,7 +141,7 @@ function App() {
         <br />
         <br />
 
-        <ContainerForm onSubmit={handleComments} >
+        <ContainerForm onSubmit={handleComments}>
           Nome:{' '}
           <input
             type="text"
@@ -158,10 +166,26 @@ function App() {
             id="comm"
             onChange={(e) => setComm(e.target.value)}
           ></textarea>
-          <button disabled={true} type="submit" style={{ background: '#d9d9d9', height: '40px' }}>
-            Enviar
-          </button> 
+          <button
+            disabled={false}
+            type="submit"
+            style={{
+              background: '#d9d9d9',
+              height: 'auto',
+              borderRadius: '8px',
+              paddingTop: '11px',
+              paddingLeft: '8px',
+              paddingRight: '8px',
+              paddingBottom: '11px',
+              fontSize: '14px',
+              fontFamily: 'Arial',
+              fontWeight: 'bolder',
+              color: '#334d4d'
 
+            }}
+          >
+            Enviar
+          </button>
           {/* <button type="text" disabled={true} style={{ background: '#d9d9d9' }}>
             Enviar
           </button> */}

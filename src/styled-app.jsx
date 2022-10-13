@@ -70,7 +70,7 @@ export const EditButton = styled.button`
   color: #334d4d;
 
   @media screen and (max-width: 700px){
-  margin-left: 110px;
+  margin-left: 130px;
 
   }
 `

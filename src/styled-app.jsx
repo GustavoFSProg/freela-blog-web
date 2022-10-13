@@ -5,6 +5,8 @@ export const ContainerApp = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+    margin: 0;
+    padding: 0;
 
   @media screen and (max-width: 700px) {
     width: 100%;

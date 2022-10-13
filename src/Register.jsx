@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import api from './api'
 import Header from './components/header/Header'
+import { ContainerFormUpdate, Form } from './styled-app'
+
 
 import './video.css'
 
@@ -49,11 +51,11 @@ function Register() {
       <br />
       <br />
 
-      <h2>CADASTRO DE POST INSTITUCIONAL</h2>
+      <h2>CADASTRO DE VIDEO</h2>
       <br />
 
-      <div style={{ width: '38%' }}>
-        <form onSubmit={registerVideo} style={{ display: 'flex', flexDirection: 'column' }}>
+      <ContainerFormUpdate >
+        <Form onSubmit={registerVideo} >
           Video:
           <input
             type="file"
@@ -120,8 +122,10 @@ function Register() {
           }}>
             Cadastrar
           </button> 
-        </form>
-      </div>
+        </Form>
+      </ContainerFormUpdate>
+      <br />
+      <br />
     </div>
   )
 }

@@ -5,8 +5,8 @@ export const ContainerApp = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 
   @media screen and (max-width: 700px) {
     width: 100%;
@@ -15,28 +15,25 @@ export const ContainerApp = styled.div`
 `
 
 export const ContainerComents = styled.div`
- 
-width: 38%;
+  width: 38%;
   @media screen and (max-width: 700px) {
     width: 70%;
     /* margin-left: -50px; */
     display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 `
 
 export const ContainerForm = styled.div`
   display: flex;
   flex-direction: column;
- 
+
   @media screen and (max-width: 700px) {
     width: 120%;
-  /* margin-left: 10px; */
-  display: flex;
-
+    /* margin-left: 10px; */
+    display: flex;
 
     /* margin-left: -5px; */
   }
@@ -51,10 +48,9 @@ export const ContainerList = styled.div`
     width: 84%;
     /* margin-left: -25px; */
     display: flex;
-  flex-direction: column;
-  align-items:center;
-  justify-content:center;
- 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 `
 export const ContainerTexts = styled.div`
@@ -84,17 +80,41 @@ export const EditButton = styled.button`
   font-weight: bolder;
   color: #334d4d;
 
-  @media screen and (max-width: 700px){
-  margin-left: 190px;
-
+  @media screen and (max-width: 700px) {
+    margin-left: 190px;
   }
 `
 export const VideoContainer = styled.div`
- width: 35%;
+  width: 35%;
 
- @media screen and (max-width: 700px){
-      margin-left: -180px
- }
+  @media screen and (max-width: 700px) {
+    margin-left: -180px;
+  }
 `
 
+export const ContainerFormUpdate = styled.div`
+  width: 38%;
+  display: flex;
+  flex-direction: column;
+     align-items: center;
+    justify-content: center;
 
+  @media screen and (max-width: 700px) {
+    width: 98%;
+  }
+`
+
+export const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+
+  @media screen and (max-width: 700px) {
+    width: 87%;
+    display: flex;
+     /* align-items: center; */
+    justify-content: center;
+
+  }
+`

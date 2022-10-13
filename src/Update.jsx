@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import api from './api'
 import Header from './components/header/Header'
+import { ContainerFormUpdate, Form } from './styled-app'
+
 
 import './video.css'
 
@@ -43,7 +45,7 @@ function Update() {
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        width: '100vw',
+        width: '100%',
       }}
     >
       <Header />
@@ -54,8 +56,8 @@ function Update() {
       <h2>UPDATE DE POST</h2>
       <br />
       {/* {`ID: ${idItem}`} */}
-      <div style={{ width: '38%' }}>
-        <form onSubmit={registerVideo} style={{ display: 'flex', flexDirection: 'column' }}>
+      <ContainerFormUpdate >
+        <Form onSubmit={registerVideo} >
           Video:
           <input
             type="file"
@@ -124,8 +126,10 @@ function Update() {
           }}>
             Editar
           </button>
-        </form>
-      </div>
+        </Form>
+      </ContainerFormUpdate>
+      <br />
+      <br />
     </div>
   )
 }

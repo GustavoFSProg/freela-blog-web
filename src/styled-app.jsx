@@ -26,8 +26,8 @@ export const ContainerForm = styled.div`
   flex-direction: column;
 
   @media screen and (max-width: 700px) {
-    width: 135%;
-    margin-left: -5px;
+    width: 133%;
+    /* margin-left: -5px; */
   }
 `
 

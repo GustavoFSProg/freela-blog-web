@@ -27,7 +27,7 @@ export const ContainerForm = styled.div`
 
   @media screen and (max-width: 700px) {
     width: 135%;
-    margin-left: -25px;
+    margin-left: -5px;
   }
 `
 

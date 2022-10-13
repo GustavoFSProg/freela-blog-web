@@ -6,7 +6,7 @@ import moment from 'moment'
 import Header from './components/header/Header'
 import './video.css'
 import { useNavigate } from 'react-router-dom'
-import { ContainerApp, ContainerComents, ContainerForm } from './styled-app'
+import { ContainerApp, EditButton, ContainerTexts, ContainerComents, ContainerForm, ContainerList } from './styled-app'
 
 function App() {
   const [posts, setPosts] = useState([])
@@ -78,19 +78,20 @@ function App() {
           localStorage.setItem('ID', item.id)
         }
         return (
-          <div
+          <ContainerList
             key={item.id}
-            style={{
-              width: '50%',
-            }}
+
           >
             <div style={{ width: '35%' }}>
               <Player>
                 {/* <source src={`https://freela-api-blog.herokuapp.com/files/${item.image}`} /> */}
 
                 {/* <source src={`http://localhost:5000/files/${item.image}`} /> */}
-              </Player>
+              </ Player>
+
             </div>
+            <ContainerTexts >
+
 
             <p>
               <h2>{item.title}</h2>
@@ -100,34 +101,25 @@ function App() {
 
             <p>
               Data: {getDateWithoutTime(item.createdAt)}
-              <button
+                <EditButton
                 disabled={false}
                 onClick={() => LocalSetId(item.id)}
                 style={{
-                  marginLeft: '380px',
-                  background: '#d9d9d9',
-                  height: 'auto',
-                  borderRadius: '6px',
-                  paddingTop: '5px',
-                  paddingLeft: '8px',
-                  paddingRight: '8px',
-                  paddingBottom: '5px',
-                  fontSize: '12px',
-                  fontFamily: 'Arial',
-                  fontWeight: 'bolder',
-                  color: '#334d4d'
+
                 }}
               >
                 Editar
-              </button>
-            </p>
-          </div>
+                </EditButton>
+              </p>
+            </ContainerTexts>
+
+          </ContainerList>
         )
       })}
       <br />
 
-      <ContainerComents style={{ width: '38%' }}>
-        <h2 style={{ marginLeft: '-20px' }}>Comentários:</h2>
+      <ContainerComents style={{}}>
+        <h2 style={{ marginLeft: '-17px' }}>Comentários:</h2>
         {comments.map((data) => {
           return (
             <div key={data.id} style={{ marginBottom: '38px' }}>

@@ -13,6 +13,7 @@ export const ContainerApp = styled.div`
 `
 
 export const ContainerComents = styled.div`
+ 
 width: 38%;
   @media screen and (max-width: 700px) {
     width: 70%;
@@ -24,9 +25,13 @@ width: 38%;
 export const ContainerForm = styled.div`
   display: flex;
   flex-direction: column;
-
+ 
   @media screen and (max-width: 700px) {
-    width: 133%;
+    width: 120%;
+  /* margin-left: 10px; */
+  display: flex;
+
+
     /* margin-left: -5px; */
   }
 `
@@ -70,7 +75,7 @@ export const EditButton = styled.button`
   color: #334d4d;
 
   @media screen and (max-width: 700px){
-  margin-left: 130px;
+  margin-left: 160px;
 
   }
 `

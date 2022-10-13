@@ -141,6 +141,7 @@ function App() {
               marginBottom: '20px',
               borderRadius: '5px',
               height: '24px',
+
             }}
             name="name"
             id="name"

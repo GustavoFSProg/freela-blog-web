@@ -19,7 +19,11 @@ export const ContainerComents = styled.div`
 width: 38%;
   @media screen and (max-width: 700px) {
     width: 70%;
-    margin-left: -50px;
+    /* margin-left: -50px; */
+    display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
   }
 `
@@ -89,7 +93,7 @@ export const VideoContainer = styled.div`
  width: 35%;
 
  @media screen and (max-width: 700px){
-      margin-left: -220px
+      margin-left: -180px
  }
 `
 

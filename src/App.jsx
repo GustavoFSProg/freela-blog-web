@@ -6,7 +6,7 @@ import moment from 'moment'
 import Header from './components/header/Header'
 import './video.css'
 import { useNavigate } from 'react-router-dom'
-import { ContainerApp, EditButton, ContainerTexts, ContainerComents, ContainerForm, ContainerList } from './styled-app'
+import { ContainerApp, EditButton, VideoContainer, ContainerTexts, ContainerComents, ContainerForm, ContainerList } from './styled-app'
 
 function App() {
   const [posts, setPosts] = useState([])
@@ -82,14 +82,14 @@ function App() {
             key={item.id}
 
           >
-            <div style={{ width: '35%' }}>
+            <VideoContainer >
               <Player>
                 {/* <source src={`https://freela-api-blog.herokuapp.com/files/${item.image}`} /> */}
 
                 {/* <source src={`http://localhost:5000/files/${item.image}`} /> */}
               </ Player>
 
-            </div>
+            </VideoContainer>
             <ContainerTexts >
 
 

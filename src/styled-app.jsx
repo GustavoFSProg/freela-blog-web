@@ -44,9 +44,13 @@ export const ContainerList = styled.div`
   width: 50%;
 
   @media screen and (max-width: 700px) {
-    margin-left: -25px;
     width: 84%;
-    margin-left: -25px;
+    /* margin-left: -25px; */
+    display: flex;
+  flex-direction: column;
+  align-items:center;
+  justify-content:center;
+ 
   }
 `
 export const ContainerTexts = styled.div`
@@ -81,3 +85,12 @@ export const EditButton = styled.button`
 
   }
 `
+export const VideoContainer = styled.div`
+ width: 35%;
+
+ @media screen and (max-width: 700px){
+      margin-left: -220px
+ }
+`
+
+
